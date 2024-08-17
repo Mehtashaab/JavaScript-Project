@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .container > div {
+            width: 48%;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <h2>Task</h2>
+    <div class="container">
+        <div>
+            <h3>Title</h3>
+            <input type="text" id="title"required>
+            <h3>Description</h3>
+            <input type="text" id="description" required>
+            <br>
+            <button id="save">Save</button>
+        </div>
+        <div>
+            <table id="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                </tr>
+                <tbody>
+                    <!-- Rows will be appended here -->
+                </tbody>
+                
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+   
+    document.getElementById('save').addEventListener('click', function() {
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+
+            console.log('Title:', title);
+            console.log('Description:', description);
+    
+    
+        const Row = document.createElement('tr');
+        const gettitle = document.createElement('td');
+        const getdescription = document.createElement('td');
+        gettitle.textContent =  title
+        getdescription.textContent = description
+        Row.appendChild(gettitle);
+        Row.appendChild(getdescription);
+        document.querySelector('table tbody').appendChild(Row);
+        
+        console.log(title)
+        console.log(description)
+
+    })
+
+
+</script>
+</html>
