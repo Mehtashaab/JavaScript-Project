@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Data</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header */
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Input Field */
+        input[type="url"] {
+            padding: 10px;
+            width: 300px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Button */
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* Table */
+        table {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fetch API Data</h1>
+    <input id="data" type="url" placeholder="Enter API URL" required>
+    <button id="Fetch">Fetch Data</button>
+    <table>
+        <thead>
+            <tr>
+                <th>UserId</th>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Body</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+<script>
+    document.getElementById('Fetch').addEventListener('click', async () => {
+        const input = document.getElementById('data').value;
+
+       
+            const data =  fetchdata(input);
+            // renderdata(data);
+            console.log(data)
+        
+    });
+
+    function fetchdata(input) {
+        return new Promise(function(resolve, reject) {
+            fetch(input)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    resolve(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    reject(error);
+                });
+        });
+    }
+
+    function renderdata(data) {
+        const tableBody = document.querySelector('tbody');
+        tableBody.innerHTML = ''; 
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.userId}</td>
+                <td>${item.id}</td>
+                <td>${item.title}</td>
+                <td>${item.body}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+</script>
+</html>
