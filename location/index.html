@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get User Location</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f6f9;
+        }
+
+        /* Logo styling */
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            background-image: url('logo.png'); /* Replace 'logo.png' with your logo path */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Header styling */
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        #get-location-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #get-location-button:hover {
+            background-color: #0056b3;
+        }
+
+        #get-location-button:active {
+            transform: scale(0.95);
+            background-color: #003f7f;
+        }
+
+        /* Make layout responsive for mobile */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            #get-location-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo -->
+    <div class="logo"></div>
+
+    <!-- Main content -->
+    <h1>Getting User Location</h1>
+    <button id="get-location-button">Get Location</button>
+    
+</body>
+<script src="script.js"></script>
+</html>
