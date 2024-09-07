@@ -10,3 +10,7 @@ function failedToGet(){
 button.addEventListener("click",async()=>{
     const result = navigator.geolocation.getCurrentPosition(gotlocation,failedToGet)
 })
+window.onstorage=(e)=>{
+    alert("changed")
+    console.log(e)
+}
